@@ -24,6 +24,7 @@ RUN \
         findutils=4.9.0-r0 \
         gcc=11.2.1_git20220219-r2 \
         gdbm-dev=1.23-r0 \
+        git=2.38.1-r0 \
         gnupg=2.2.35-r4 \
         libc-dev=0.7.2-r3 \
         libffi-dev=3.4.2-r1 \
@@ -125,7 +126,11 @@ RUN \
             -o \
             \( -type f -a \( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \) \) \
         \) -exec rm -rf '{}' +
-
+     && cd ~
+     && mkdir furk-stream
+     && cd furk-stream
+     git pull https://github.com/justcop/Furk-Stream.git
+     
 # Entrypoint & CMD
 ENTRYPOINT ["/init"]
 
