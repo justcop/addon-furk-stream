@@ -127,10 +127,11 @@ RUN \
             \( -type f -a \( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \) \) \
         \) -exec rm -rf '{}' +
      && cd ~
-     && mkdir furk-stream
-     && cd furk-stream
      git pull https://github.com/justcop/Furk-Stream.git
-     
+     cd Furk-Stream
+     pip3 install -r requirements.txt
+     python3 furk.py
+    
 # Entrypoint & CMD
 ENTRYPOINT ["/init"]
 
